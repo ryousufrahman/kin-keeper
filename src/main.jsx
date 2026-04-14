@@ -6,6 +6,7 @@ import MainLayout from './Layout/MainLayout'
 import Timeline from './Components/Pages/Timeline/Timeline'
 import Home from './Components/Pages/Home/Home'
 import Stats from './Components/Pages/State/Stats'
+import GlobalContext from './GlobalContext/GlobalContext'
 
 const router =createBrowserRouter([
   {
@@ -39,6 +40,8 @@ const router =createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <GlobalContext>
+      <RouterProvider router={router}></RouterProvider>
+    </GlobalContext>
   </StrictMode>,
 )
