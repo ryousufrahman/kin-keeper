@@ -1,10 +1,12 @@
-import React, { use, useContext, useState } from "react";
+import React, { use, useContext } from "react";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
 import { AllContext } from "../../GlobalContext/GlobalContext";
 const allFriendsPromise = fetch("/allFriends.json").then((res) => res.json());
 
 const DetailsFriends = () => {
+  
+  
   const AllFriendsArray = use(allFriendsPromise);
   const params = useParams();
   const { id } = params;
@@ -27,26 +29,26 @@ const DetailsFriends = () => {
             setAllInterection
           } = Allstate
     
-    const [callf , setCallf] =useState({clickedFriend})
-    const [textF , setTextF]=useState({clickedFriend})
-    const [videoF , setVideoF]=useState({clickedFriend})
+    
          const now = new Date();
         const currentTime = now.toLocaleTimeString();
 
 
-  const handleCall =()=>{
+     const handleCall =()=>{
           toast.success(` Called ${clickedFriend.name} `, {
           position: "top-center",
           })
-          setCallf({
-            callf ,
-            interection : 'call' ,
-            currentTime : currentTime
-          })
+          let newInterection = {
+             friendName : clickedFriend.name ,
+             date : currentTime ,
+             interaction : 'call'
+
+          }
+          
         
-          setCall([...call , callf])
-          setAllInterection([...allInterection , callf])
-          console.log(callf);
+         setCall([...call , newInterection]) 
+         setAllInterection([...allInterection , newInterection ])
+         
           
      }
 
@@ -54,29 +56,36 @@ const DetailsFriends = () => {
           toast.success(` Texted ${clickedFriend.name} `, {
           position: "top-center",
           })
-          setTextF({
-             textF ,
-             interection : 'text' ,
-            currentTime : currentTime
+          let newInterection = {
+             friendName : clickedFriend.name ,
+             date : currentTime ,
+             interaction : 'text'
 
-          })
+          }
 
-        setText([...text , textF])
-         setAllInterection([...allInterection , textF])
+
+        setText([...text , newInterection ])
+        setAllInterection([...allInterection ,newInterection])
+         
 
      }
      const handleVideo =()=>{
          toast.success(` Video Called ${clickedFriend.name}`, {
           position: "top-center",
           })
-          setVideoF({
-            videoF ,
-             interection : 'text' ,
-            currentTime : currentTime
 
-          })
-          setVideoCall([...videoCall ,videoF])
-           setAllInterection([...allInterection , videoF])
+              let newInterection = {
+             friendName : clickedFriend.name ,
+             date : currentTime ,
+             interaction : 'video'
+
+          } 
+         
+          setVideoCall([...videoCall , newInterection ])
+          setAllInterection([...allInterection , newInterection])
+           
+           
+           
      }
 
   return (
