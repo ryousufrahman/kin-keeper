@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { AllContext } from "../../../GlobalContext/GlobalContext";
 
 const Interection = () => {
+             
+    const {allInterection} =useContext(AllContext)
     
             
             
@@ -32,7 +34,11 @@ const Interection = () => {
         </div>
       </div>
 
-      
+        <div>
+            {
+                allInterection.map(his => <p>{his.interaction}</p>)
+            }
+        </div>
 
 
     </div>
