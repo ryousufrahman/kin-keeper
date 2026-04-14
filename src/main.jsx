@@ -8,6 +8,7 @@ import Home from './Components/Pages/Home/Home'
 import Stats from './Components/Pages/State/Stats'
 import GlobalContext from './GlobalContext/GlobalContext'
 import DetailsFriends from './Components/AllFriends/DetailsFriends'
+import { ToastContainer } from 'react-toastify'
 
 const router =createBrowserRouter([
   {
@@ -48,5 +49,6 @@ createRoot(document.getElementById('root')).render(
     <GlobalContext>
       <RouterProvider router={router}></RouterProvider>
     </GlobalContext>
+      <ToastContainer />
   </StrictMode>,
 )

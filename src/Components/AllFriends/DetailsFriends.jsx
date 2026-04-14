@@ -1,5 +1,7 @@
-import React, { use } from "react";
+import React, { use, useContext } from "react";
 import { useParams } from "react-router";
+import { toast } from "react-toastify";
+import { AllContext } from "../../GlobalContext/GlobalContext";
 const allFriendsPromise = fetch("/allFriends.json").then((res) => res.json());
 
 const DetailsFriends = () => {
@@ -9,7 +11,45 @@ const DetailsFriends = () => {
   const clickedFriend = AllFriendsArray.find(
     (clickedF) => clickedF.id == parseInt(id),
   );
+ 
+
   const tags = clickedFriend.tags
+
+  const Allstate = useContext(AllContext)
+   const {
+             call ,
+            setCall ,
+            text ,
+            setText ,
+            videoCall,
+            setVideoCall ,
+            allInterection ,
+            setAllInterection
+          } = Allstate
+    
+      setAllInterection([...call , ...text , ...videoCall])
+      
+
+  const handleCall =()=>{
+          toast.success(` Called ${clickedFriend.name} `, {
+          position: "top-center",
+          })
+          setCall([...call , clickedFriend])
+     }
+
+     const handleText =()=>{
+          toast.success(` Texted ${clickedFriend.name} `, {
+          position: "top-center",
+          })
+        setText([...text , clickedFriend])
+
+     }
+     const handleVideo =()=>{
+         toast.success(` Video Called ${clickedFriend.name}`, {
+          position: "top-center",
+          })
+          setVideoCall([...videoCall ,clickedFriend])
+     }
 
   return (
     <div className="">
@@ -144,7 +184,7 @@ const DetailsFriends = () => {
               </h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <button className="bg-slate-50 border cursor-pointer border-slate-100 p-4 rounded-lg flex flex-col items-center justify-center gap-2 hover:bg-slate-100 transition-colors group">
+                <button onClick={handleCall} className="bg-slate-50 border cursor-pointer border-slate-100 p-4 rounded-lg flex flex-col items-center justify-center gap-2 hover:bg-slate-100 transition-colors group">
                   <svg
                     className="w-6 h-6 text-slate-600 group-hover:text-slate-800"
                     fill="none"
@@ -161,7 +201,7 @@ const DetailsFriends = () => {
                   <span className="text-slate-700 font-medium">Call</span>
                 </button>
 
-                <button className="bg-slate-50 border cursor-pointer border-slate-100 p-4 rounded-lg flex flex-col items-center justify-center gap-2 hover:bg-slate-100 transition-colors group">
+                <button onClick={handleText} className="bg-slate-50 border cursor-pointer border-slate-100 p-4 rounded-lg flex flex-col items-center justify-center gap-2 hover:bg-slate-100 transition-colors group">
                   <svg
                     className="w-6 h-6 text-slate-600 group-hover:text-slate-800"
                     fill="none"
@@ -178,7 +218,7 @@ const DetailsFriends = () => {
                   <span className="text-slate-700 font-medium">Text</span>
                 </button>
 
-                <button className="bg-slate-50 border cursor-pointer  border-slate-100 p-4 rounded-lg flex flex-col items-center justify-center gap-2 hover:bg-slate-100 transition-colors group">
+                <button onClick={handleVideo} className="bg-slate-50 border cursor-pointer  border-slate-100 p-4 rounded-lg flex flex-col items-center justify-center gap-2 hover:bg-slate-100 transition-colors group">
                   <svg
                     className="w-6 h-6 text-slate-600 group-hover:text-slate-800"
                     fill="none"
