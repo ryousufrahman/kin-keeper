@@ -1,4 +1,4 @@
-import React, { use, useContext } from "react";
+import React, { use, useContext, useState } from "react";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
 import { AllContext } from "../../GlobalContext/GlobalContext";
@@ -27,14 +27,25 @@ const DetailsFriends = () => {
             setAllInterection
           } = Allstate
     
-      setAllInterection([...call , ...text , ...videoCall])
-      
+    const [callf , setCallf] =useState({clickedFriend})
+         const now = new Date();
+        const currentTime = now.toLocaleTimeString();
+
 
   const handleCall =()=>{
           toast.success(` Called ${clickedFriend.name} `, {
           position: "top-center",
           })
-          setCall([...call , clickedFriend])
+          setCallf({
+            callf ,
+            interection : 'call' ,
+            currentTime : currentTime
+          })
+        
+          setCall([...call , callf])
+          setAllInterection([...allInterection , callf])
+          console.log(callf);
+          
      }
 
      const handleText =()=>{
@@ -42,6 +53,7 @@ const DetailsFriends = () => {
           position: "top-center",
           })
         setText([...text , clickedFriend])
+         setAllInterection([...allInterection , clickedFriend])
 
      }
      const handleVideo =()=>{
@@ -49,6 +61,7 @@ const DetailsFriends = () => {
           position: "top-center",
           })
           setVideoCall([...videoCall ,clickedFriend])
+           setAllInterection([...allInterection , clickedFriend])
      }
 
   return (
