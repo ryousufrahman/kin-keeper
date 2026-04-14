@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router";
 
 const SingleFriend = ({ friend }) => {
     const tags =friend.tags
   return (
-    <div>
+    <Link to={`/friendsDetails/${friend.id}`}>
       <div className="transition-all duration-300 ease-out 
             hover:-translate-y-1 hover:shadow-lg hover:border-gray-200 
             cursor-pointer">
@@ -38,7 +39,7 @@ const SingleFriend = ({ friend }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -7,6 +7,7 @@ import Timeline from './Components/Pages/Timeline/Timeline'
 import Home from './Components/Pages/Home/Home'
 import Stats from './Components/Pages/State/Stats'
 import GlobalContext from './GlobalContext/GlobalContext'
+import DetailsFriends from './Components/AllFriends/DetailsFriends'
 
 const router =createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router =createBrowserRouter([
      {
       path : '/stats' ,
       element  : <Stats></Stats>
+     } ,
+     {
+      path : 'friendsDetails/:id',
+      element : <DetailsFriends></DetailsFriends>
      }
 
     ]
