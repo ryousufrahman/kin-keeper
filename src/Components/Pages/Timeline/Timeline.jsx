@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AllContext } from '../../../GlobalContext/GlobalContext';
+import EmpthyLine from './EmpthyLine';
 
 const Timeline = () => {
     const Allstate = useContext(AllContext)
@@ -15,7 +16,11 @@ const Timeline = () => {
               } = Allstate
     return (
         <div>
-         <p>{allInterection.length}</p>
+          <div className=''>
+           {
+              allInterection.length == 0 ? <EmpthyLine></EmpthyLine> : <h1>interection {allInterection.length}</h1>
+            }
+          </div>
         </div>
     );
 };

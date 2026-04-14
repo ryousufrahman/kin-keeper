@@ -9,6 +9,7 @@ import Stats from './Components/Pages/State/Stats'
 import GlobalContext from './GlobalContext/GlobalContext'
 import DetailsFriends from './Components/AllFriends/DetailsFriends'
 import { ToastContainer } from 'react-toastify'
+import ErrorPage from './Components/Pages/ErrorPage'
 
 const router =createBrowserRouter([
   {
@@ -34,9 +35,17 @@ const router =createBrowserRouter([
      {
       path : 'friendsDetails/:id',
       element : <DetailsFriends></DetailsFriends>
-     }
+     } ,
+   
+    
+      
 
-    ]
+    
+
+    ] ,
+
+  errorElement : <ErrorPage></ErrorPage>
+    
   }
 
 

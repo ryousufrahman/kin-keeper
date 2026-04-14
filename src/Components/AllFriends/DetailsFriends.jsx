@@ -28,6 +28,8 @@ const DetailsFriends = () => {
           } = Allstate
     
     const [callf , setCallf] =useState({clickedFriend})
+    const [textF , setTextF]=useState({clickedFriend})
+    const [videoF , setVideoF]=useState({clickedFriend})
          const now = new Date();
         const currentTime = now.toLocaleTimeString();
 
@@ -52,16 +54,29 @@ const DetailsFriends = () => {
           toast.success(` Texted ${clickedFriend.name} `, {
           position: "top-center",
           })
-        setText([...text , clickedFriend])
-         setAllInterection([...allInterection , clickedFriend])
+          setTextF({
+             textF ,
+             interection : 'text' ,
+            currentTime : currentTime
+
+          })
+
+        setText([...text , textF])
+         setAllInterection([...allInterection , textF])
 
      }
      const handleVideo =()=>{
          toast.success(` Video Called ${clickedFriend.name}`, {
           position: "top-center",
           })
-          setVideoCall([...videoCall ,clickedFriend])
-           setAllInterection([...allInterection , clickedFriend])
+          setVideoF({
+            videoF ,
+             interection : 'text' ,
+            currentTime : currentTime
+
+          })
+          setVideoCall([...videoCall ,videoF])
+           setAllInterection([...allInterection , videoF])
      }
 
   return (
