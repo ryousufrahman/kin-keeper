@@ -4,7 +4,9 @@ const SingleFriend = ({ friend }) => {
     const tags =friend.tags
   return (
     <div>
-      <div>
+      <div className="transition-all duration-300 ease-out 
+            hover:-translate-y-1 hover:shadow-lg hover:border-gray-200 
+            cursor-pointer">
         <div className="flex items-center justify-center ">
           <div className="bg-white rounded-2xl shadow p-6 flex flex-col items-center gap-4 w-full max-w-sm">
             
@@ -30,8 +32,8 @@ const SingleFriend = ({ friend }) => {
             </div>
 
         
-            <span className="px-5 py-2 rounded-full bg-orange-400 text-white text-sm font-medium">
-              Status
+            <span className={`px-5 py-2 rounded-full  text-white  font-medium ${friend.status =='On-Track' ? 'bg-[#244D3F]' : friend.status == 'overdue' ? 'bg-[#EF4444]' : 'bg-[#EFAD44]' }`}>
+              {friend.status}
             </span>
           </div>
         </div>
