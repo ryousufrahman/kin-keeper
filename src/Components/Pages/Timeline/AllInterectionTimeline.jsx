@@ -1,10 +1,13 @@
 import React from "react";
+import callIcon from '../../../assets/Images/call.png'
+import textIcon from '../../../assets/Images/text.png'
+import videoIcon from '../../../assets/Images/video.png'
 
 const AllInterectionTimeline = ({communication}) => {
   return (
-    <div className="px-5 py-4 rounded-2xl shadow">
+    <div className="px-5 py-4 rounded-2xl shadow flex gap-3 items-center">
         <div className="img">
-
+          <img src={` ${communication.interaction =='call'  ? callIcon : communication.interaction =='text' ? textIcon : videoIcon }`} alt="icon " />
         </div>
         <div>
             <div className="flex gap-2 items-center">
