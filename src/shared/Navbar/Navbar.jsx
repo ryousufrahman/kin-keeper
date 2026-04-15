@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <NavLink  to={'/home'} className={ ({isActive}) => isActive ? ' bg-[#244D3F] text-white' : 'text-gray-500'  }><IoHomeOutline />Home</NavLink>
+              <NavLink  to={'/'} className={ ({isActive}) => isActive ? ' bg-[#244D3F] text-white' : 'text-gray-500'  }><IoHomeOutline />Home</NavLink>
             </li>
             <li>
               <NavLink to={'/timeline'} className={ ({isActive}) => isActive ? ' bg-[#244D3F] text-white' : 'text-gray-500'  }><RiTimeLine />Timeline</NavLink>

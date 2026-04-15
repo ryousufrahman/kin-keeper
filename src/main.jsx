@@ -20,10 +20,7 @@ const router =createBrowserRouter([
       index : true ,
       element : <Home></Home>
      } ,
-     {
-        path : '/home' ,
-        element : <Home></Home>
-     },
+     
      {
       path : '/timeline',
       element : <Timeline></Timeline>

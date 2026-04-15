@@ -2,6 +2,7 @@ import React, { use, useContext } from "react";
 import { Link, useParams } from "react-router";
 import { toast } from "react-toastify";
 import { AllContext } from "../../GlobalContext/GlobalContext";
+import { MdArrowBackIosNew } from "react-icons/md";
 const allFriendsPromise = fetch("/allFriends.json").then((res) => res.json());
 
 const DetailsFriends = () => {
@@ -91,7 +92,7 @@ const DetailsFriends = () => {
   return (
     <div className="">
       <div className="max-w-5xl mx-auto p-6  ">
-        <Link to={'/'} className="btn bg-[#244D3F] text-white mb-4">Back</Link>
+        <Link to={'/'} className="btn bg-[#244D3F] text-white mb-4"> <MdArrowBackIosNew />Back</Link>
         
         <div className="flex flex-col md:flex-row gap-6">
           
