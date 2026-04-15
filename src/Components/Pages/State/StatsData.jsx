@@ -16,7 +16,7 @@ const StatsData = () => {
 ];
 
   return (
-    <div className="max-w-[1000px] mx-auto p-4 ">
+    <div className="max-w-250 mx-auto p-4 ">
       <h2 className="font-bold text-2xl">Stats</h2>
       <div className="piechart  rounded-2xl py-10 shadow mt-5">
         <PieChart
