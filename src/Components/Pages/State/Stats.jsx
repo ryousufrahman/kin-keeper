@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { AllContext } from '../../../GlobalContext/GlobalContext';
 import EmpthyState from './EmpthyState';
+import StatsData from './statsData';
+
+
 
 const Stats = () => {
       const allstate = useContext(AllContext)
@@ -12,8 +15,7 @@ const Stats = () => {
     return (
         <div>
            {
-            allInterection.length ==0 ? <EmpthyState></EmpthyState> : <h1>pie chart is here : {allInterection.length}</h1>
-
+            allInterection.length ==0 ? <EmpthyState></EmpthyState> : <StatsData></StatsData>
            }
         </div>
     );
