@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AllContext } from '../../../GlobalContext/GlobalContext';
 import EmpthyState from './EmpthyState';
-import StatsData from './statsData';
+import StatsData from './StatsData';
 
 
 
