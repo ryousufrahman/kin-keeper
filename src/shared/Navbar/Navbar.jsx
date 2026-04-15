@@ -8,9 +8,9 @@ import { ImStatsBars } from "react-icons/im";
 const Navbar = () => {
   return (
     <div className="bg-base-100 shadow-sm sticky top-0 z-10">
-      <div className="navbar max-w-[1400px] mx-auto ">
-        <div className="flex-1">
-          <Link to={'/'}><img src={nabLogo} alt="Navlogo" /></Link>
+      <div className="navbar p-4 max-w-[1400px] mx-auto ">
+        <div className=" sm:flex-1 justify-center ">
+          <Link className="hidden sm:block" to={'/'}><img src={nabLogo} alt="Navlogo"  /></Link>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
