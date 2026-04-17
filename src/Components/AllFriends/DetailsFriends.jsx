@@ -1,12 +1,37 @@
-import React, { use, useContext } from "react";
+import React, { use, useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { toast } from "react-toastify";
 import { AllContext } from "../../GlobalContext/GlobalContext";
 import { MdArrowBackIosNew } from "react-icons/md";
+import { ScaleLoader } from "react-spinners";
 const allFriendsPromise = fetch("/allFriends.json").then((res) => res.json());
 
 const DetailsFriends = () => {
   
+     const [friends , setFriends] =useState([])
+       const [loading , setLoading]=useState(true)
+    
+      useEffect(()=> {
+      const fetchFriends = async ()=> {
+      const res = await fetch('/allFriends.json')
+      const data = await res.json()
+      setTimeout(() => {
+         setFriends(data)
+        setLoading(false)
+      }, 300);
+      
+    
+    
+      } ;
+      fetchFriends()
+    
+    
+    
+    
+    
+      } , [])
+    
+    
   
   const AllFriendsArray = use(allFriendsPromise);
   const params = useParams();
@@ -90,7 +115,12 @@ const DetailsFriends = () => {
      }
 
   return (
-    <div className="">
+    <div>
+    {
+      loading ? <div className="flex justify-center py-25"> <ScaleLoader color="#244D3F" /></div> :
+
+
+              <div className="">
       <div className="max-w-5xl mx-auto p-6  ">
         <Link to={'/'} className="btn bg-[#244D3F] text-white mb-4"> <MdArrowBackIosNew />Back</Link>
         
@@ -124,7 +154,7 @@ const DetailsFriends = () => {
               <p className="text-slate-500 italic text-sm mb-2">
                 {clickedFriend.bio}
               </p>
-              <p className="text-slate-400 text-xs">Preferred: {clickedFriend.email}</p>
+              <p className="text-slate-400 text-xs">Email: {clickedFriend.email}</p>
             </div>
 
             {/* Action Buttons */}
@@ -278,6 +308,10 @@ const DetailsFriends = () => {
           </div>
         </div>
       </div>
+    </div>
+
+    }
+
     </div>
   );
 };
